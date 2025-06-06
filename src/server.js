@@ -14,6 +14,13 @@ app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send(
+    "🎉 Welcome to the Chapter Performance API! " +
+      "Visit <a href='/api/v1/chapters'>/api/v1/chapters</a> to see data."
+  );
+});
+
 app.use("/api/v1/chapters", chapterRoutes);
 
 app.use((err, req, res, next) => {
